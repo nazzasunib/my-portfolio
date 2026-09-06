@@ -30,6 +30,20 @@
   --muted:#8b93b8;
   --line: rgba(169,198,255,0.14);
   --glass: rgba(15, 22, 64, 0.55);
+
+  /* Section-specific background treatments — subtle tints derived from brand palette */
+  --bg-hero: var(--navy);
+  --bg-about: linear-gradient(180deg, #0a0e2a 0%, #0d1138 50%, #060a1f 100%);
+  --bg-skills: #0a0d28;
+  --bg-experience: linear-gradient(180deg, #0b0f2f 0%, #080c24 100%);
+  --bg-projects: #0b0d2a;
+  --bg-github: #09081f;
+  --bg-business: linear-gradient(135deg, #0c0e2c 0%, #0a0d28 100%);
+  --bg-textile: linear-gradient(135deg, #0a0d2a 0%, #0c0f33 100%);
+  --bg-certificates: #0a0e28;
+  --bg-social: linear-gradient(180deg, #08091e 0%, #0a0d28 100%);
+  --bg-contact: linear-gradient(135deg, #1a1a3f 0%, #0d0d24 100%);
+  --bg-footer: #0a0d28;
 }
 
 *{box-sizing:border-box; margin:0; padding:0;}
@@ -162,7 +176,7 @@ nav.scrolled{
 /* ---------- Hero ---------- */
 .hero{
   min-height:100vh; display:flex; align-items:center; position:relative; overflow:hidden;
-  padding-top:110px;
+  padding-top:110px; background:var(--bg-hero);
 }
 .float-layer{ position:fixed; inset:0; z-index:0; pointer-events:none; }
 .float-icon{
@@ -292,6 +306,9 @@ nav.scrolled{
 .glass-card:hover{ transform:translateY(-6px); border-color:rgba(79,216,238,0.4); box-shadow:0 20px 50px -20px rgba(41,70,224,0.5); }
 
 /* ---------- About ---------- */
+#about{
+  background:var(--bg-about);
+}
 .about-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:start; }
 .about-text p{ color:var(--muted); margin-bottom:18px; font-size:1.02rem; }
 .about-stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:34px; }
@@ -317,6 +334,9 @@ nav.scrolled{
 .t-card p{ color:var(--muted); font-size:0.92rem; }
 
 /* ---------- Skills ---------- */
+#skills{
+  background:var(--bg-skills);
+}
 .skills-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:22px; }
 .skill-card{ padding:26px; text-align:center; }
 .skill-ring{ position:relative; width:110px; height:110px; margin:0 auto 18px; }
@@ -328,6 +348,9 @@ nav.scrolled{
 .skill-card h4{ font-size:0.95rem; font-weight:500; color:var(--lightblue); }
 
 /* ---------- Projects ---------- */
+#projects{
+  background:var(--bg-projects);
+}
 .projects-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:26px; }
 .proj-card{ overflow:hidden; padding:0; display:flex; flex-direction:column; }
 .proj-thumb{
@@ -350,6 +373,9 @@ nav.scrolled{
 .proj-links a:hover{ color:var(--white); }
 
 /* ---------- GitHub stats ---------- */
+#github{
+  background:var(--bg-github);
+}
 .gh-panel{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-bottom:40px; }
 .gh-stat{ padding:26px; text-align:center; }
 .gh-stat .n{ font-family:'Space Grotesk'; font-size:2.1rem; font-weight:700; background:linear-gradient(120deg,var(--cyan),var(--royal-light)); -webkit-background-clip:text; background-clip:text; color:transparent; }
@@ -362,6 +388,12 @@ nav.scrolled{
 .lang-row .pct{ width:44px; text-align:right; font-family:'JetBrains Mono'; font-size:0.78rem; color:var(--muted); }
 
 /* ---------- BD / Textile feature grids ---------- */
+#business{
+  background:var(--bg-business);
+}
+#textile{
+  background:var(--bg-textile);
+}
 .feature-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:22px; }
 .feature-card{ padding:28px; }
 .feature-icon{
@@ -386,6 +418,9 @@ nav.scrolled{
 @keyframes slide{ from{ transform:translate(-25%,-25%);} to{ transform:translate(0%,0%);} }
 
 /* ---------- Certificates slider ---------- */
+#certificates{
+  background:var(--bg-certificates);
+}
 .cert-track-wrap{ overflow:hidden; }
 .cert-track{ display:flex; gap:22px; transition:transform .5s ease; }
 .cert-card{ min-width:280px; padding:24px; }
@@ -398,6 +433,9 @@ nav.scrolled{
 .cert-nav button:hover{ border-color:var(--cyan); color:var(--cyan); }
 
 /* ---------- Social Media ---------- */
+#social{
+  background:var(--bg-social);
+}
 .social-media-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:22px; }
 .social-media-card{
   padding:26px; display:flex; align-items:center; gap:18px; position:relative; overflow:hidden;
@@ -430,10 +468,13 @@ nav.scrolled{
 .social-media-card.shop-card:hover .go-icon{ color:#ffbf68; }
 
 /* ---------- Contact ---------- */
+#contact{
+  background:var(--bg-contact);
+}
 .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:50px; }
 .form-group{ margin-bottom:20px; position:relative; }
 .form-group input, .form-group textarea{
-  width:100%; background:var(--navy-2); border:1px solid var(--line); border-radius:12px; padding:16px 18px;
+  width:100%; background:rgba(15, 22, 64, 0.75); border:1px solid var(--line); border-radius:12px; padding:16px 18px;
   color:var(--white); font-family:'Inter'; font-size:0.95rem; outline:none; transition:border-color .25s ease, box-shadow .25s ease;
 }
 .form-group textarea{ resize:vertical; min-height:130px; }
@@ -441,7 +482,7 @@ nav.scrolled{
 .form-group label{ position:absolute; left:18px; top:16px; color:var(--muted); font-size:0.9rem; pointer-events:none; transition:.2s ease; background:transparent; }
 .form-group input:focus + label, .form-group input:not(:placeholder-shown) + label,
 .form-group textarea:focus + label, .form-group textarea:not(:placeholder-shown) + label{
-  top:-9px; left:12px; font-size:0.7rem; background:var(--navy); padding:0 6px; color:var(--cyan);
+  top:-9px; left:12px; font-size:0.7rem; background:#1a1a3f; padding:0 6px; color:var(--cyan);
 }
 .contact-info-card{ padding:30px; margin-bottom:20px; display:flex; gap:16px; align-items:flex-start; }
 .contact-info-card svg{ color:var(--cyan); flex-shrink:0; margin-top:2px; }
@@ -458,10 +499,14 @@ nav.scrolled{
 .social-row a:hover{ border-color:var(--cyan); color:var(--cyan); transform:translateY(-3px); }
 
 /* ---------- Footer ---------- */
-footer{ position:relative; padding-top:100px; }
+footer{
+  position:relative;
+  padding-top:100px;
+  background:var(--bg-footer);
+}
 .wave{ position:absolute; top:-1px; left:0; width:100%; overflow:hidden; line-height:0; transform:rotate(180deg); }
 .wave svg{ position:relative; display:block; width:calc(100% + 1.3px); height:90px; }
-.footer-inner{ background:var(--navy-2); padding:60px 0 30px; border-top:1px solid var(--line); }
+.footer-inner{ background:var(--bg-footer); padding:60px 0 30px; border-top:1px solid var(--line); }
 .footer-top{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px; margin-bottom:40px; }
 .footer-bottom{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; padding-top:26px; border-top:1px solid var(--line); color:var(--muted); font-size:0.82rem; }
 #backToTop{
@@ -577,7 +622,7 @@ footer{ position:relative; padding-top:100px; }
 </section>
 
 <!-- ABOUT -->
-<section class="section" id="about">
+<section class="section" id="about" style="background:var(--bg-about);">
   <div class="container">
     <div class="eyebrow">About</div>
     <h2 class="section-title">Two disciplines, <span class="grad-text">one thread.</span></h2>
@@ -627,7 +672,7 @@ footer{ position:relative; padding-top:100px; }
 </section>
 
 <!-- SKILLS -->
-<section class="section" id="skills" style="background:var(--navy-2);">
+<section class="section" id="skills" style="background:var(--bg-skills);">
   <svg width="0" height="0"><defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="var(--cyan)"/><stop offset="100%" stop-color="var(--royal-light)"/></linearGradient></defs></svg>
   <div class="container">
     <div class="eyebrow">Skills</div>
@@ -639,7 +684,7 @@ footer{ position:relative; padding-top:100px; }
 </section>
 
 <!-- EXPERIENCE -->
-<section class="section" id="experience">
+<section class="section" id="experience" style="background:var(--bg-experience);">
   <div class="container">
     <div class="eyebrow">Experience</div>
     <h2 class="section-title">Where I've <span class="grad-text">put in the work.</span></h2>
@@ -650,7 +695,7 @@ footer{ position:relative; padding-top:100px; }
 </section>
 
 <!-- PROJECTS -->
-<section class="section" id="projects" style="background:var(--navy-2);">
+<section class="section" id="projects" style="background:var(--bg-projects);">
   <div class="container">
     <div class="eyebrow">Projects</div>
     <h2 class="section-title">Things I've <span class="grad-text">built &amp; explored.</span></h2>
@@ -663,7 +708,7 @@ footer{ position:relative; padding-top:100px; }
 </section>
 
 <!-- GITHUB -->
-<section class="section" id="github">
+<section class="section" id="github" style="background:var(--bg-github);">
   <div class="container">
     <div class="eyebrow">GitHub</div>
     <h2 class="section-title">Activity &amp; <span class="grad-text">tech stack.</span></h2>
@@ -686,7 +731,7 @@ footer{ position:relative; padding-top:100px; }
 </section>
 
 <!-- BUSINESS DEVELOPMENT -->
-<section class="section" id="business" style="background:var(--navy-2);">
+<section class="section" id="business" style="background:var(--bg-business);">
   <div class="container split">
     <div data-aos="fade-right">
       <div class="eyebrow">Business Development</div>
@@ -728,7 +773,7 @@ footer{ position:relative; padding-top:100px; }
 </section>
 
 <!-- TEXTILE ENGINEERING -->
-<section class="section" id="textile">
+<section class="section" id="textile" style="background:var(--bg-textile);">
   <div class="container split">
     <div class="visual" data-aos="fade-right" style="order:1;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 4c2 2 4 2 6 0s4-2 6 0 4 2 4 0M4 12c2 2 4 2 6 0s4-2 6 0 4 2 4 0M4 20c2 2 4 2 6 0s4-2 6 0 4 2 4 0"/></svg>
@@ -769,7 +814,7 @@ footer{ position:relative; padding-top:100px; }
 </section>
 
 <!-- CERTIFICATES -->
-<section class="section" id="certificates" style="background:var(--navy-2);">
+<section class="section" id="certificates" style="background:var(--bg-certificates);">
   <div class="container">
     <div class="eyebrow">Certificates</div>
     <h2 class="section-title">Credentials <span class="grad-text">on file.</span></h2>
@@ -802,7 +847,7 @@ footer{ position:relative; padding-top:100px; }
 </section>
 
 <!-- SOCIAL MEDIA -->
-<section class="section" id="social">
+<section class="section" id="social" style="background:var(--bg-social);">
   <div class="container">
     <div class="eyebrow">Social Media</div>
     <h2 class="section-title">Find me <span class="grad-text">around the web.</span></h2>
@@ -896,7 +941,7 @@ footer{ position:relative; padding-top:100px; }
 </section>
 
 <!-- CONTACT -->
-<section class="section" id="contact">
+<section class="section" id="contact" style="background:var(--bg-contact);">
   <div class="container">
     <div class="eyebrow">Contact</div>
     <h2 class="section-title">Let's <span class="grad-text">start a conversation.</span></h2>
@@ -956,7 +1001,7 @@ footer{ position:relative; padding-top:100px; }
 <!-- FOOTER -->
 <footer>
   <div class="wave">
-    <svg viewBox="0 0 1200 90" preserveAspectRatio="none"><path d="M0,0 C300,90 900,0 1200,60 L1200,00 L0,0 Z" fill="var(--navy-2)"></path></svg>
+    <svg viewBox="0 0 1200 90" preserveAspectRatio="none"><path d="M0,0 C300,90 900,0 1200,60 L1200,00 L0,0 Z" fill="#0a0d28"></path></svg>
   </div>
   <div class="footer-inner">
     <div class="container">
