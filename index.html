@@ -420,6 +420,14 @@ nav.scrolled{
   margin-left:auto; color:var(--muted); opacity:0; transform:translateX(-6px); transition:.3s ease; flex-shrink:0; position:relative; z-index:1;
 }
 .social-media-card:hover .go-icon{ opacity:1; transform:translateX(0); color:var(--cyan); }
+.social-media-card.shop-card::before{
+  background:radial-gradient(circle at 30% 20%, rgba(255,190,92,0.2), transparent 62%);
+}
+.social-media-card.shop-card .social-icon-lg{
+  background:linear-gradient(135deg, rgba(255,153,51,0.3), rgba(79,216,238,0.18));
+  color:#ffbf68;
+}
+.social-media-card.shop-card:hover .go-icon{ color:#ffbf68; }
 
 /* ---------- Contact ---------- */
 .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:50px; }
@@ -558,8 +566,8 @@ footer{ position:relative; padding-top:100px; }
       <div class="portrait-badge">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.2H22l-6 4.6 2.3 7.2L12 16.4 5.7 21l2.3-7.2-6-4.6h7.6z"/></svg>
         <div>
-          <div class="num">Final Year</div>
-          <div class="lab">B.Sc. Textile Engineering · BUFT</div>
+          <div class="num">Business Development Executive</div>
+          <div class="lab">at NidusLab Ecosystem</div>
         </div>
       </div>
     </div>
@@ -573,16 +581,16 @@ footer{ position:relative; padding-top:100px; }
   <div class="container">
     <div class="eyebrow">About</div>
     <h2 class="section-title">Two disciplines, <span class="grad-text">one thread.</span></h2>
-    <p class="section-sub">Bridging textile manufacturing, business strategy, and technology to shape the future of the apparel industry.</p>
+    <p class="section-sub">Bridging business strategy, technology and innovation to create impactful digital solutions and meaningful business opportunities.</p>
     <div class="about-grid">
       <div class="about-text" data-aos="fade-right">
-        <p>I'm a final-year Textile Engineering student at BGMEA University of Fashion & Technology (BUFT) with hands-on internship experience in a composite textile factory covering spinning, knitting, dyeing and apparel operations.
+        <p>I'm a Textile Engineering graduate from BGMEA University of Fashion & Technology (BUFT), currently working as a Business Development Executive at NidusLab. My background combines technical knowledge of the textile and apparel industry with hands-on experience in business development, giving me a unique perspective on both industry operations and business growth.
 
-Beyond the technical side of the industry, I've developed a strong interest in business development. During my internship, I worked on order costing, buyer communication & marketing. At the same time, I took on leadership roles in four university clubs, where I managed media, organized events & coordinated volunteer teams.
+      During my internship at a composite textile factory, I gained practical exposure to spinning, knitting, dyeing and apparel operations while also working on order costing, buyer communication and marketing activities. Alongside my academic journey, I took on leadership roles in four university clubs where I managed media, organized events and coordinated volunteer teams.
 
-I'm also expanding my expertise in web technologies and artificial intelligence because I believe the future of textile and apparel manufacturing will be driven not only by yarn count and GSM but also by data, automation and digital innovation.
+      Today, I'm expanding my expertise in business development, web technologies, artificial intelligence and digital innovation. I believe the future of businesses will be driven not only by industry expertise but also by data, automation and intelligent technology.
 
-My goal is to combine engineering knowledge, business insight and technology to help build smarter, more efficient and future-ready solutions for the textile and apparel industry.</p>
+      My goal is to combine engineering knowledge, business insight and emerging technologies to build smarter digital solutions, create meaningful business opportunities and drive sustainable business growth.</p>
 
         <div class="about-stats">
           <div class="stat-box"><div class="n">4</div><div class="l">Club Leadership Roles</div></div>
@@ -874,6 +882,15 @@ My goal is to combine engineering knowledge, business insight and technology to 
         <svg class="go-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
       </a>
 
+      <a href="https://una-mart-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="social-media-card glass-card shop-card">
+        <div class="social-icon-lg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M3 4h2l2.4 11.2a2 2 0 002 1.6h8.8a2 2 0 001.9-1.4L21 8H6"/><path d="M10 8v5M14 8v5"/></svg></div>
+        <div class="social-media-body">
+          <h4>Shop at UNA Mart</h4>
+          <span>Explore products &amp; shop online</span>
+        </div>
+        <svg class="go-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+      </a>
+
     </div>
   </div>
 </section>
@@ -916,7 +933,7 @@ My goal is to combine engineering knowledge, business insight and technology to 
         </div>
         <div class="contact-info-card glass-card">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <div><div class="lab">Location</div><div class="val">Uttara, Dhaka, Bangladesh</div></div>
+          <div><div class="lab">Location</div><div class="val">Gulshan 2, Dhaka, Bangladesh</div></div>
         </div>
 
         <div class="map-wrap">
