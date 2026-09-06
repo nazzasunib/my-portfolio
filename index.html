@@ -383,6 +383,33 @@ nav.scrolled{
 .event-body h4{ font-size:1.1rem; margin-bottom:6px; }
 .event-meta{ color:var(--cyan); font-family:'JetBrains Mono', monospace; font-size:0.75rem; margin-bottom:12px; }
 .event-body p{ color:var(--muted); font-size:0.9rem; }
+.event-card:first-child{ cursor:pointer; transition:transform .3s ease, border-color .3s ease; }
+.event-card:first-child:hover{ transform:translateY(-6px); border-color:rgba(79,216,238,0.45); }
+.event-open-hint{ color:var(--cyan); font-size:0.76rem; margin-top:14px; font-family:'JetBrains Mono', monospace; }
+.event-modal{ position:fixed; inset:0; z-index:1200; display:none; align-items:center; justify-content:center; padding:24px; background:rgba(4,7,24,0.86); backdrop-filter:blur(14px); }
+.event-modal.open{ display:flex; }
+.event-modal-panel{ width:min(1050px,100%); max-height:92vh; overflow:auto; position:relative; padding:26px; border:1px solid var(--line); background:linear-gradient(145deg,rgba(15,22,64,.98),rgba(6,10,31,.98)); border-radius:18px; box-shadow:0 28px 90px rgba(0,0,0,.45); }
+.event-modal-close{ position:absolute; top:14px; right:16px; width:38px; height:38px; border:1px solid var(--line); border-radius:50%; background:rgba(6,10,31,.7); color:var(--white); font-size:1.35rem; cursor:pointer; z-index:2; }
+.event-modal-close:hover{ color:var(--cyan); border-color:var(--cyan); }
+.event-slideshow{ position:relative; height:min(54vw,470px); min-height:220px; overflow:hidden; border-radius:12px; background:#050817; }
+.event-slide{ position:absolute; inset:0; opacity:0; transition:opacity 1.4s ease; }
+.event-slide.active{ opacity:1; }
+.event-slide img{ width:100%; height:100%; object-fit:cover; }
+.event-slide::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(4,7,24,.08),rgba(4,7,24,.35)); pointer-events:none; }
+.event-slide-nav{ position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; padding:0 14px; pointer-events:none; }
+.event-slide-nav button{ pointer-events:auto; width:42px; height:42px; border:1px solid rgba(245,247,255,.3); border-radius:50%; background:rgba(4,7,24,.5); color:var(--white); cursor:pointer; font-size:1.3rem; }
+.event-slide-nav button:hover{ border-color:var(--cyan); color:var(--cyan); }
+.event-dots{ display:flex; justify-content:center; gap:7px; margin-top:12px; }
+.event-dot{ width:7px; height:7px; border:0; border-radius:50%; background:rgba(169,198,255,.3); cursor:pointer; }
+.event-dot.active{ background:var(--cyan); transform:scale(1.3); }
+.event-article{ padding:30px 8px 10px; color:var(--muted); }
+.event-article h2{ color:var(--white); font-size:clamp(1.7rem,3vw,2.5rem); line-height:1.15; margin-bottom:10px; }
+.event-article h3{ color:var(--lightblue); font-size:1.2rem; margin:28px 0 9px; }
+.event-article p{ margin:0 0 13px; }
+.event-article ul{ list-style:disc; padding-left:22px; margin:8px 0 18px; }
+.event-article li{ margin:7px 0; }
+.event-article strong{ color:var(--white); }
+body.modal-open{ overflow:hidden; }
 
 /* ---------- GitHub stats ---------- */
 #github{
@@ -838,9 +865,10 @@ footer{
       <article class="event-card glass-card">
         <div class="event-thumb"><img src="assets/events/event-1.jpg" alt="Event name" onerror="this.remove();"></div>
         <div class="event-body">
-          <h4>Event Name</h4>
-          <div class="event-meta">Event date · Location</div>
-          <p>Write a short description of your event, your role and the memorable work you did.</p>
+          <h4>AI &amp; Career Guidance Seminar 2026</h4>
+          <div class="event-meta">23 August 2026 · Green University of Bangladesh</div>
+          <p>NidusLab's seminar on AI, careers and the future of recruitment.</p>
+          <div class="event-open-hint">Click to read the full story &rarr;</div>
         </div>
       </article>
 
@@ -864,6 +892,62 @@ footer{
     </div>
   </div>
 </section>
+
+<div class="event-modal" id="eventModal" aria-hidden="true">
+  <div class="event-modal-panel" role="dialog" aria-modal="true" aria-labelledby="eventModalTitle">
+    <button class="event-modal-close" id="eventModalClose" aria-label="Close event details">&times;</button>
+    <div class="event-slideshow" id="eventSlideshow">
+      <div class="event-slide active"><img src="assets/events/event-1.jpg" alt="AI and Career Guidance Seminar cover" onerror="this.remove();"></div>
+      <div class="event-slide"><img src="assets/events/event-2.jpg" alt="Seminar award presentation" onerror="this.remove();"></div>
+      <div class="event-slide"><img src="assets/events/event-3.jpg" alt="Signing event documents" onerror="this.remove();"></div>
+      <div class="event-slide"><img src="assets/events/event-4.jpg" alt="Seminar group photo" onerror="this.remove();"></div>
+      <div class="event-slide"><img src="assets/events/event-5.jpg" alt="Seminar audience" onerror="this.remove();"></div>
+      <div class="event-slide"><img src="assets/events/event-6.jpg" alt="Seminar team photo" onerror="this.remove();"></div>
+      <div class="event-slide-nav"><button type="button" id="eventPrev" aria-label="Previous photo">&#8249;</button><button type="button" id="eventNext" aria-label="Next photo">&#8250;</button></div>
+    </div>
+    <div class="event-dots" id="eventDots" aria-label="Choose event photo"></div>
+    <article class="event-article">
+      <h2 id="eventModalTitle">AI &amp; Career Guidance Seminar 2026 at Green University of Bangladesh</h2>
+      <h3>Empowering Students for an AI-Driven Career Future</h3>
+      <p>The rapid growth of Artificial Intelligence is transforming the way we learn, work and build our careers. To help students understand these changes and prepare for the future of work, <strong>NidusLab</strong> organized an <strong>AI &amp; Career Guidance Seminar 2026</strong> at <strong>Green University of Bangladesh</strong> in collaboration with the <strong>Center for Career Development (CCD)</strong>.</p>
+      <p>The seminar brought together university students who were eager to learn how AI is changing the job market, what skills employers are looking for and how they can prepare themselves for a competitive career landscape.</p>
+      <h3>A Day of Learning, Networking and Career Exploration</h3>
+      <p>The day started early with the NidusLab team setting up a dedicated booth on campus from <strong>9:00 AM</strong>. Students visited the booth throughout the day, where they learned more about NidusLab, NidusJob and the opportunities available through AI-powered career solutions.</p>
+      <p>The main seminar took place from <strong>2:00 PM to 4:30 PM</strong> at the Green University campus. The session focused on the growing impact of Artificial Intelligence on careers and the importance of continuously developing relevant skills.</p>
+      <p>Students were introduced to practical insights on topics such as:</p>
+      <ul><li>The impact of AI on the future job market</li><li>How AI is changing traditional career paths</li><li>Skills students should develop for the future</li><li>How to use AI as a career development tool</li><li>Building a stronger and more competitive profile</li><li>Preparing for AI-powered recruitment and hiring</li><li>Understanding the changing expectations of employers</li></ul>
+      <h3>Connecting Students with the Future of Recruitment</h3>
+      <p>One of the key focuses of the seminar was helping students understand how technology is changing the recruitment process.</p>
+      <p>Through <strong>NidusJob</strong>, students can explore AI-powered career features designed to make job searching smarter and more personalized. From matching candidates with suitable opportunities to improving resumes and identifying skill gaps, AI can play an important role in helping job seekers make better career decisions.</p>
+      <p>The seminar gave students an opportunity to understand that AI is not simply a technology for the future — it is already becoming an important part of today's workplace.</p>
+      <h3>More Than Just a Seminar</h3>
+      <p>For NidusLab, the event was more than a single seminar. It was an opportunity to connect directly with students, understand their career concerns and create meaningful conversations around the future of employment.</p>
+      <p>The booth provided students with a chance to interact with the NidusLab team, learn about the company's technology-driven ecosystem and explore how platforms like NidusJob can support them throughout their career journey.</p>
+      <p>The enthusiasm and participation of the students made the experience especially meaningful.</p>
+      <h3>Building a Smarter Career Ecosystem</h3>
+      <p>As technology continues to evolve, students need more than academic knowledge to succeed. They need adaptability, digital skills, communication abilities, problem-solving skills and the confidence to continuously learn.</p>
+      <p>At NidusLab, we believe that technology should make these opportunities more accessible.</p>
+      <p>Through initiatives like the <strong>AI &amp; Career Guidance Seminar</strong>, NidusLab aims to bridge the gap between students, technology and the evolving job market — helping young professionals become better prepared for the future.</p>
+      <h3>Looking Ahead</h3>
+      <p>The Green University seminar was an inspiring step toward creating stronger connections between the education ecosystem and the rapidly changing world of technology and employment.</p>
+      <p>We are grateful to <strong>Green University of Bangladesh</strong> and the <strong>Center for Career Development (CCD)</strong> for their support and collaboration and to all the students who joined the seminar, visited our booth and actively participated in the discussions.</p>
+      <p>The future of work is changing.</p>
+      <p><strong>And the next generation needs to be ready for it.</strong></p>
+      <h3>NidusLab — Building Smart Solutions.</h3>
+      <h3>Discovering NidusJob: A Smarter Way to Build Your Career</h3>
+      <p>A key part of the discussion was the introduction of <strong>NidusJob</strong>, NidusLab's AI-powered job marketplace designed to make the job-search and recruitment experience smarter, faster and more personalized.</p>
+      <p>For students and job seekers, finding the right opportunity can often be challenging. From searching through countless job postings to preparing a resume and understanding whether a particular role matches their skills, the traditional job-search process can take significant time and effort.</p>
+      <p><strong>NidusJob is designed to simplify this journey with the power of AI.</strong></p>
+      <p>The platform helps job seekers discover opportunities that align with their background and career interests while providing AI-powered tools to strengthen their overall job application process.</p>
+      <p>Through NidusJob, job seekers can access features such as:</p>
+      <ul><li><strong>AI-Powered Job Matching</strong> — Discover job opportunities that match your background and skills</li><li><strong>CV &amp; Job Match Score</strong> — Understand how well your CV aligns with a specific job</li><li><strong>AI-Based Skills Gap Analysis</strong> — Identify the skills you may need to develop for your target roles</li><li><strong>AI-Built ATS-Friendly Resume</strong> — Create a professional resume designed for modern recruitment systems</li><li><strong>AI-Generated Cover Letter</strong> — Generate personalized cover letters for job applications</li><li><strong>AI-Generated Interview Questions</strong> — Prepare for interviews with role-relevant questions</li><li><strong>Smart Job Alerts</strong> — Stay updated with relevant opportunities</li><li><strong>Application Tracking Dashboard</strong> — Keep track of your job applications in one place</li></ul>
+      <p>The goal is simple: <strong>make job searching less complicated and help candidates make smarter career decisions.</strong></p>
+      <p>For the students at Green University, the introduction to NidusJob offered a practical example of how AI can be used not only for learning and productivity but also for building a stronger career.</p>
+      <p>As AI continues to transform recruitment, platforms like NidusJob are helping create a more connected ecosystem between <strong>talent and opportunity</strong>.</p>
+      <p><strong>NidusLab:</strong> <a href="https://niduslab.com/" target="_blank" rel="noopener noreferrer">niduslab.com</a><br><strong>NidusJob:</strong> <a href="https://nidusjob.com/" target="_blank" rel="noopener noreferrer">nidusjob.com</a></p>
+    </article>
+  </div>
+</div>
 
 <!-- CERTIFICATES -->
 <section class="section" id="certificates" style="background:var(--bg-certificates);">
@@ -1120,6 +1204,61 @@ document.querySelectorAll(".mobile-menu a").forEach(a => a.addEventListener("cli
 
 document.getElementById("backToTop").addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
 document.getElementById("year").textContent = new Date().getFullYear();
+
+/* ================== EVENT STORY GALLERY ================== */
+const eventModal = document.getElementById("eventModal");
+const eventCard = document.querySelector(".event-card:first-child");
+const eventSlides = [...document.querySelectorAll(".event-slide")];
+const eventDots = document.getElementById("eventDots");
+let eventIndex = 0;
+let eventTimer;
+let eventTouchStart = 0;
+
+eventSlides.forEach((_, index) => {
+  const dot = document.createElement("button");
+  dot.type = "button";
+  dot.className = "event-dot" + (index === 0 ? " active" : "");
+  dot.setAttribute("aria-label", `Show event photo ${index + 1}`);
+  dot.addEventListener("click", () => showEventSlide(index));
+  eventDots.appendChild(dot);
+});
+
+function showEventSlide(index){
+  eventIndex = (index + eventSlides.length) % eventSlides.length;
+  eventSlides.forEach((slide, slideIndex) => slide.classList.toggle("active", slideIndex === eventIndex));
+  document.querySelectorAll(".event-dot").forEach((dot, dotIndex) => dot.classList.toggle("active", dotIndex === eventIndex));
+}
+function startEventAutoplay(){
+  clearInterval(eventTimer);
+  eventTimer = setInterval(() => showEventSlide(eventIndex + 1), 6500);
+}
+function stopEventAutoplay(){ clearInterval(eventTimer); }
+function openEventModal(){
+  eventModal.classList.add("open");
+  eventModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  showEventSlide(0);
+  startEventAutoplay();
+}
+function closeEventModal(){
+  eventModal.classList.remove("open");
+  eventModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+  stopEventAutoplay();
+}
+eventCard.addEventListener("click", openEventModal);
+document.getElementById("eventModalClose").addEventListener("click", closeEventModal);
+document.getElementById("eventPrev").addEventListener("click", () => { showEventSlide(eventIndex - 1); startEventAutoplay(); });
+document.getElementById("eventNext").addEventListener("click", () => { showEventSlide(eventIndex + 1); startEventAutoplay(); });
+eventModal.addEventListener("click", event => { if(event.target === eventModal) closeEventModal(); });
+document.addEventListener("keydown", event => { if(event.key === "Escape" && eventModal.classList.contains("open")) closeEventModal(); });
+document.getElementById("eventSlideshow").addEventListener("touchstart", event => { eventTouchStart = event.changedTouches[0].clientX; }, {passive:true});
+document.getElementById("eventSlideshow").addEventListener("touchend", event => {
+  const distance = event.changedTouches[0].clientX - eventTouchStart;
+  if(Math.abs(distance) < 45) return;
+  showEventSlide(eventIndex + (distance < 0 ? 1 : -1));
+  startEventAutoplay();
+}, {passive:true});
 
 /* ================== TYPED ROLE ================== */
 const roles = ["Textile Engineering Student", "Business Development Executive", "Aspiring Technologist", "Future-Focused Problem Solver"];
