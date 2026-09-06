@@ -374,7 +374,7 @@ nav.scrolled{
 
 /* ---------- Events ---------- */
 #events{ background:var(--bg-social); }
-.events-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:24px; }
+.events-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,340px)); gap:24px; justify-content:center; }
 .event-card{ overflow:hidden; padding:0; }
 .event-thumb{ height:210px; background:linear-gradient(135deg, var(--navy-3), var(--royal) 140%); display:flex; align-items:center; justify-content:center; overflow:hidden; }
 .event-thumb::before{ content:'Add event photo'; color:var(--lightblue); font-family:'JetBrains Mono', monospace; font-size:0.76rem; letter-spacing:0.08em; text-transform:uppercase; opacity:0.7; }
@@ -863,30 +863,12 @@ footer{
 
     <div class="events-grid" data-aos="fade-up">
       <article class="event-card glass-card">
-        <div class="event-thumb"><img src="assets/events/event-1.jpg" alt="Event name" onerror="this.remove();"></div>
+        <div class="event-thumb"><img src="GUB 2026/1.JPG" alt="GUB 2026 seminar" onerror="this.remove();"></div>
         <div class="event-body">
           <h4>GUB 2026</h4>
           <div class="event-meta">23 August 2026 · Green University of Bangladesh</div>
           <p>NidusLab's seminar on AI, careers and the future of recruitment.</p>
           <div class="event-open-hint">Click to read the full story &rarr;</div>
-        </div>
-      </article>
-
-      <article class="event-card glass-card">
-        <div class="event-thumb"><img src="assets/events/event-2.jpg" alt="Event name" onerror="this.remove();"></div>
-        <div class="event-body">
-          <h4>Event Name</h4>
-          <div class="event-meta">Event date · Location</div>
-          <p>Replace this text with details about another event, program or achievement.</p>
-        </div>
-      </article>
-
-      <article class="event-card glass-card">
-        <div class="event-thumb"><img src="assets/events/event-3.jpg" alt="Event name" onerror="this.remove();"></div>
-        <div class="event-body">
-          <h4>Event Name</h4>
-          <div class="event-meta">Event date · Location</div>
-          <p>Add the story, people involved and outcome of your event here.</p>
         </div>
       </article>
     </div>
@@ -897,12 +879,12 @@ footer{
   <div class="event-modal-panel" role="dialog" aria-modal="true" aria-labelledby="eventModalTitle">
     <button class="event-modal-close" id="eventModalClose" aria-label="Close event details">&times;</button>
     <div class="event-slideshow" id="eventSlideshow">
-      <div class="event-slide active"><img src="assets/events/event-1.jpg" alt="AI and Career Guidance Seminar cover" onerror="this.remove();"></div>
-      <div class="event-slide"><img src="assets/events/event-2.jpg" alt="Seminar award presentation" onerror="this.remove();"></div>
-      <div class="event-slide"><img src="assets/events/event-3.jpg" alt="Signing event documents" onerror="this.remove();"></div>
-      <div class="event-slide"><img src="assets/events/event-4.jpg" alt="Seminar group photo" onerror="this.remove();"></div>
-      <div class="event-slide"><img src="assets/events/event-5.jpg" alt="Seminar audience" onerror="this.remove();"></div>
-      <div class="event-slide"><img src="assets/events/event-6.jpg" alt="Seminar team photo" onerror="this.remove();"></div>
+      <div class="event-slide active"><img src="GUB 2026/1.JPG" alt="AI and Career Guidance Seminar cover" onerror="this.remove();"></div>
+      <div class="event-slide"><img src="GUB 2026/2.JPG" alt="Seminar award presentation" onerror="this.remove();"></div>
+      <div class="event-slide"><img src="GUB 2026/3.JPG" alt="Signing event documents" onerror="this.remove();"></div>
+      <div class="event-slide"><img src="GUB 2026/4.JPG" alt="Seminar group photo" onerror="this.remove();"></div>
+      <div class="event-slide"><img src="GUB 2026/5.JPG" alt="Seminar audience" onerror="this.remove();"></div>
+      <div class="event-slide"><img src="GUB 2026/6.JPG" alt="Seminar team photo" onerror="this.remove();"></div>
       <div class="event-slide-nav"><button type="button" id="eventPrev" aria-label="Previous photo">&#8249;</button><button type="button" id="eventNext" aria-label="Next photo">&#8250;</button></div>
     </div>
     <div class="event-dots" id="eventDots" aria-label="Choose event photo"></div>
