@@ -372,6 +372,18 @@ nav.scrolled{
 .proj-links a{ font-size:0.82rem; color:var(--cyan); display:flex; align-items:center; gap:6px; }
 .proj-links a:hover{ color:var(--white); }
 
+/* ---------- Events ---------- */
+#events{ background:var(--bg-social); }
+.events-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:24px; }
+.event-card{ overflow:hidden; padding:0; }
+.event-thumb{ height:210px; background:linear-gradient(135deg, var(--navy-3), var(--royal) 140%); display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.event-thumb::before{ content:'Add event photo'; color:var(--lightblue); font-family:'JetBrains Mono', monospace; font-size:0.76rem; letter-spacing:0.08em; text-transform:uppercase; opacity:0.7; }
+.event-thumb img{ width:100%; height:100%; object-fit:cover; }
+.event-body{ padding:22px; }
+.event-body h4{ font-size:1.1rem; margin-bottom:6px; }
+.event-meta{ color:var(--cyan); font-family:'JetBrains Mono', monospace; font-size:0.75rem; margin-bottom:12px; }
+.event-body p{ color:var(--muted); font-size:0.9rem; }
+
 /* ---------- GitHub stats ---------- */
 #github{
   background:var(--bg-github);
@@ -560,6 +572,7 @@ footer{
       <a href="#projects">Projects</a>
       <a href="#business">Business</a>
       <a href="#textile">Textile</a>
+      <a href="#events">Events</a>
       <a href="#social">Social</a>
       <a href="#contact">Contact</a>
     </div>
@@ -575,6 +588,7 @@ footer{
   <a href="#projects">Projects</a>
   <a href="#business">Business</a>
   <a href="#textile">Textile</a>
+  <a href="#events">Events</a>
   <a href="#certificates">Certificates</a>
   <a href="#social">Social Media</a>
   <a href="#contact">Contact</a>
@@ -809,6 +823,44 @@ footer{
           <h4>Industrial Experience &amp; Education</h4><p>Rising Knit Textiles Ltd internship, paired with B.Sc. coursework at BUFT.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="section" id="events" style="background:var(--bg-social);">
+  <div class="container">
+    <div class="eyebrow">Events</div>
+    <h2 class="section-title">Moments from <span class="grad-text">my events.</span></h2>
+    <p class="section-sub">Add your event photos, names and stories here.</p>
+
+    <div class="events-grid" data-aos="fade-up">
+      <article class="event-card glass-card">
+        <div class="event-thumb"><img src="assets/events/event-1.jpg" alt="Event name" onerror="this.remove();"></div>
+        <div class="event-body">
+          <h4>Event Name</h4>
+          <div class="event-meta">Event date · Location</div>
+          <p>Write a short description of your event, your role and the memorable work you did.</p>
+        </div>
+      </article>
+
+      <article class="event-card glass-card">
+        <div class="event-thumb"><img src="assets/events/event-2.jpg" alt="Event name" onerror="this.remove();"></div>
+        <div class="event-body">
+          <h4>Event Name</h4>
+          <div class="event-meta">Event date · Location</div>
+          <p>Replace this text with details about another event, program or achievement.</p>
+        </div>
+      </article>
+
+      <article class="event-card glass-card">
+        <div class="event-thumb"><img src="assets/events/event-3.jpg" alt="Event name" onerror="this.remove();"></div>
+        <div class="event-body">
+          <h4>Event Name</h4>
+          <div class="event-meta">Event date · Location</div>
+          <p>Add the story, people involved and outcome of your event here.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
